@@ -1,0 +1,56 @@
+Nullpointers: xkrivka00 (vedoucí týmu), xsemerv00, xjanotf00, x260514
+IVS Projekt 2 -- Týmová spolupráce -- Kalkulačka s GUI
+
+Termíny:
+
+BŘEZEN
+
+18.3. Zhotovení plánu projektu
+21.3  Inicializace repozitáře na GitHubu, Sepsání README
+29.3  Vytvoření testů
+
+DUBEN
+
+5.4   Vytvoření matematické knihovny, makefile
+12.4  GUI kalkulačky
+19.4  Profiling
+24.4  Vytvoření installeru, zapouzdření projektu
+26.4  Dokončení testů celku, licence, dokumentace, sepsání problémů
+30.4  Odevzdání projektu
+
+ROZDĚLENÍ PRÁCE
+(Není definitivní, ale dotyčný za danou část úkolu zodpovídá)
+
+xkrivka00 - Nastavení gitu, vytvoření repozitáře, kvalita kódu
+xsemerv00 - Matematická knihovna
+xjanotf00 - GUI, Profiling
+260514 - Vytvoření makefile, dokumentace, manuál
+
++ vzájemná kontrola práce, pomoc ostatních při nesnázích
+
+Komunikace:
+
+Komunikační kanály
+- Discord server, upravený pro development, zapnuté notifikace, aplikace i na telefonu
+- Vyzkoušet Github Issues
+
+Pravidla komunikace
+- Reportování o pokroku, problémech
+- Pokoušet se radit uvnitř týmu, cílem je hledat řešení
+- Doodržovat morální zásady, žádné urážky (ani den před deadline)
+- Kolektivní hlasování při nerozhodnosti
+
+Github:
+- Správné využívání gitu
+- Zprávy commitů výhradně v aj
+- Dokumentace a komentáře kódu výhradně v aj
+- Jasné a stručné komentáře, také v AJ
+
+Verzování
+
+Systém pro správu verzí - Github - https://github.com
+Link - https://github.com/xkrivka00/IVS-project_2
+Přidal jsem přístup uživateli ivskontrola@gmail.com
+
+
+
