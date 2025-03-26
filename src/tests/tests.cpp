@@ -1,5 +1,17 @@
+/**
+ * @file        tests.cpp
+ * @author      Václav Semerád, VUT FIT Brno, xsemerv00@fit.vutbr.cz
+ * @date        26.03.2025
+ *
+ * @brief       Tests of math library
+ *
+ */
+
 #include <gtest/gtest.h>
 #include "../mathlib.h"
+
+//Temporary run: g++ tests.cpp -o tests -lgtest -lgtest_main -pthread
+//               ./tests
 
 TEST(Calculator, Add){
     EXPECT_EQ(mathlib::addition(1,1), 2);
