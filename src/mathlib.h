@@ -99,7 +99,7 @@
       */
  
      static double power(double base, double exponent){
-         if (exponent < 0){
+         if (exponent < 0 || exponent != static_cast<int>(exponent)){
              throw std::runtime_error("Exponent can be only natural number or zero");
          }
          if (base == 0){
