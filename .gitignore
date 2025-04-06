@@ -1,2 +1,10 @@
 
 /.vscode
+/build/Testing/Temporary
+build/src/tests/tests
+/build/src
+/build/CMakeFiles
+build/CMakeCache.txt
+build/cmake_install.cmake
+build/CTestTestfile.cmake
+build/Makefile

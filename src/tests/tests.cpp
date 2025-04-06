@@ -145,16 +145,17 @@ TEST(Calculator, Division){
 }
 
 TEST(Calculator, Factorial){
-    EXPECT_EQ(mathlib::factorial(0), 1);
-    EXPECT_EQ(mathlib::factorial(2), 2);
-    EXPECT_EQ(mathlib::factorial(3), 6);
-    EXPECT_EQ(mathlib::factorial(4), 24);
-    EXPECT_EQ(mathlib::factorial(5), 120);
+    mathlib m;
+    EXPECT_EQ(m.factorial(0), 1);
+    EXPECT_EQ(m.factorial(2), 2);
+    EXPECT_EQ(m.factorial(3), 6);
+    EXPECT_EQ(m.factorial(4), 24);
+    EXPECT_EQ(m.factorial(5), 120);
     
-    EXPECT_ANY_THROW(mathlib::factorial(13));
-    EXPECT_ANY_THROW(mathlib::factorial(-43712));
-    EXPECT_ANY_THROW(mathlib::factorial(12.345));
-    EXPECT_ANY_THROW(mathlib::factorial(-2.345));
+    EXPECT_ANY_THROW(m.factorial(13));
+    EXPECT_ANY_THROW(m.factorial(-43712));
+    EXPECT_ANY_THROW(m.factorial(12.345));
+    EXPECT_ANY_THROW(m.factorial(-2.345));
 }
 
 TEST(Calculator, Power){
