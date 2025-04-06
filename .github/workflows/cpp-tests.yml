@@ -16,6 +16,7 @@ jobs:
 
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y cmake g++ libgtest-dev
+
       - name: Install Google Test from source
         run: |
             cd /tmp
@@ -24,9 +25,10 @@ jobs:
             cmake .
             sudo make install
 
-      - name: Build and test
+      - name: Create build directory and run cmake
         run: |
+          mkdir -p build  # Ensure build directory exists
           cd build
-          cmake ..
-          cmake --build .
-          ctest --output-on-failure
+          cmake ..  # Generate makefiles in build directory
+          cmake --build .  # Build the project
+          ctest --output-on-failure  # Run tests and show output on failure
