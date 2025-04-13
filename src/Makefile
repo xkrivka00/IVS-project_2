@@ -25,3 +25,5 @@ run:
 
 #TODO: spustí překlad programu pro výpočet směrodatné odchylky na profiling    
 stddev:
+	@cd profiling && $(CC) stddev.cpp -o $@
+	@cd profiling && ./$@
