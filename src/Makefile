@@ -1,29 +1,32 @@
 CC = g++
 CXXFLAGS = -lgtest -lgtest_main -pthread
 
-.PHONY: all pack test clean doc run sttdev 
+.PHONY: all pack test clean doc run stddev
 
-#TODO: přeloží projekt – včetně programu pro profiling
+#TODO: Compiles the project – including the program for profiling
 all:
 
-#TODO: zabalí projekt tak, aby mohl být odevzdán
+#TODO: Packages the project for submission
 pack:
 
-#TODO: smaže všechny soubory, co nemají být odevzdány
+#TODO: Removes all files that should not be submitted
 clean: 
+	@rm -f profiling/stddev 
 
-#TODO: spustí testy matematické knihovny
+#TODO: Runs tests for the math library
 test:
 	@cd tests && $(CC) tests.cpp -o $@ $(CXXFLAGS)
 	@cd tests && ./$@
 
-#TODO: spustí generování dokumentace
+#TODO: Generates the documentation
 doc: 
 
-#TODO: spustí program
+#TODO: Runs the main program
 run: 
 
-#TODO: spustí překlad programu pro výpočet směrodatné odchylky na profiling    
+#TODO: Compiles the standard deviation program in the profiling directory    
 stddev:
 	@cd profiling && $(CC) stddev.cpp -o $@
 	@cd profiling && ./$@
+
+ ### END OF FILE MAKEFILE ###

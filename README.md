@@ -32,4 +32,10 @@ TODO
 ## Uninstallation
 TODO
 ## License
-This program is provided under license (to be decided...)
+This project is licensed under the terms of the GNU General Public License v3.0 (GPL-3.0).
+
+You are free to use, modify, and distribute this software under the same license,
+provided that the original copyright and license
+notice are preserved.
+
+See the full license text in the [LICENSE](./LICENSE) file or at [gnu.org/licenses/gpl-3.0](https://www.gnu.org/licenses/gpl-3.0).
