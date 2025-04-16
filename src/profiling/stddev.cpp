@@ -13,48 +13,48 @@
  * @see ../mathlib.h
  */
 
- #include "../mathlib.h"
- #include <iostream>
- #include <cstdio>
- #include <cstdlib>
- #include <vector>
- 
- #define FIRST_ARG 1
- 
- int main(){
-     std::vector<double> numbers; ///< Container to store input numbers
-     double number;
-     double sum = 0;
- 
-    // Read real numbers from standard input
-     while (scanf("%lf", &number) == 1) {
-         numbers.push_back(number);
-         sum += number;
-     }
- 
-     unsigned int count = numbers.size();
+#include "../mathlib.h"
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <vector>
 
-     // Check if there are enough numbers to compute standard deviation
-     if (count <= 1) {
-         std::cerr << "Invalid input.\n";
-         return 1;
-     }
- 
-    // Calculate arithmetic mean
-     double average = sum / count;
-     double sum_of_squared_diffs = 0;
- 
-    // Get sum of squared differences 
-     for (int index = 0; index < count; index++){
-         double difference = numbers[index] - average;
-         sum_of_squared_diffs += difference * difference;
-     }
- 
-     // Calculate sample standard deviation
-     double result = sum_of_squared_diffs / (count - 1);
-     result = mathlib::square_root(result, 2);
-     std::cout << result << std::endl;
-     return 0;
- }
+#define FIRST_ARG 1
 
- /** END OF FILE STDDEV.CPP*/
+int main(){
+std::vector<double> numbers; ///< Container to store input numbers
+double number;
+double sum = 0;
+
+// Read real numbers from standard input
+while (scanf("%lf", &number) == 1) {
+    numbers.push_back(number);
+    sum = mathlib::addition(sum, number);
+}
+
+unsigned int count = numbers.size();
+
+// Check if there are enough numbers to compute standard deviation
+if (count <= 1) {
+    std::cerr << "Invalid input.\n";
+    return 1;
+}
+
+// Calculate arithmetic mean
+double average = mathlib::division(sum, count);
+double sum_of_squared_diffs = 0;
+
+// Get sum of squared differences 
+for (int index = 0; index < count; index++){
+    double difference = mathlib::subtraction(numbers[index], average);
+    sum_of_squared_diffs += mathlib::multiplication(difference, difference);
+}
+
+// Calculate sample standard deviation
+double result_before_div = mathlib::division(sum_of_squared_diffs, (count - 1));
+double result = mathlib::square_root(result_before_div, 2);
+std::cout << result << std::endl;
+return 0;
+}
+
+/** END OF FILE STDDEV.CPP*/
