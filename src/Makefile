@@ -11,12 +11,11 @@ pack:
 
 #TODO: Removes all files that should not be submitted
 clean: 
-	@rm -f profiling/stddev 
+	@rm -f profiling/stddev tests/test
 
 #TODO: Runs tests for the math library
 test:
-	@cd tests && $(CC) tests.cpp -o $@ $(CXXFLAGS)
-	@cd tests && ./$@
+	@cd tests && $(CC) *.cpp -o $@ $(CXXFLAGS) && ./$@ 
 
 #TODO: Generates the documentation
 doc: 
@@ -26,7 +25,6 @@ run:
 
 #TODO: Compiles the standard deviation program in the profiling directory    
 stddev:
-	@cd profiling && $(CC) stddev.cpp -o $@
-	@cd profiling && ./$@
+	@cd profiling && $(CC) *.cpp -o $@ && ./$@
 
  ### END OF FILE MAKEFILE ###
