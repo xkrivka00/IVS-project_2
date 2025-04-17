@@ -54,6 +54,12 @@ for (int index = 0; index < count; index++){
 double result_before_div = mathlib::division(sum_of_squared_diffs, (count - 1));
 double result = mathlib::square_root(result_before_div, 2);
 std::cout << result << std::endl;
+// Clear input buffer just in case
+std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+// Pause always
+std::cout << "Press Enter to exit..." << std::endl;
+std::cin.get();
 return 0;
 }
 

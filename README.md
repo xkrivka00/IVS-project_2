@@ -9,7 +9,7 @@ The program is based on a modular architecture, with the basic mathematical func
 
 ### Platform
 
-Ubuntu 64-bit (Windows? tbd)
+Ubuntu 64-bit
 
 ## Authors
 

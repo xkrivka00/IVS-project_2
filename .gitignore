@@ -8,3 +8,17 @@ build/CMakeCache.txt
 build/cmake_install.cmake
 build/CTestTestfile.cmake
 build/Makefile
+build/stddev-1.0.0-Linux.deb
+build/_CPack_Packages/Linux/DEB/stddev-1.0.0-Linux/usr/share/icons/hicolor/128x128/apps/stddev-icon.png
+build/_CPack_Packages/Linux/DEB/stddev-1.0.0-Linux/usr/share/applications/stddev.desktop
+build/_CPack_Packages/Linux/DEB/stddev-1.0.0-Linux/usr/bin/stddev
+build/_CPack_Packages/Linux/DEB/stddev-1.0.0-Linux/md5sums
+build/_CPack_Packages/Linux/DEB/stddev-1.0.0-Linux/debian-binary
+build/_CPack_Packages/Linux/DEB/stddev-1.0.0-Linux/data.tar.gz
+build/_CPack_Packages/Linux/DEB/stddev-1.0.0-Linux/control.tar.gz
+build/_CPack_Packages/Linux/DEB/stddev-1.0.0-Linux/control
+build/_CPack_Packages/Linux/DEB/stddev-1.0.0-Linux.deb
+build/CPackConfig.cmake
+build/CPackSourceConfig.cmake
+build/install_manifest.txt
+src/profiling/stddev

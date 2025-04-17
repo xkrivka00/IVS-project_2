@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Stddev
+
+Exec=stddev
+Icon=stddev-icon
+Type=Application
+Categories=Utility
+Comment=MOdern C++ stddev terminal calculator 
+Terminal=true
