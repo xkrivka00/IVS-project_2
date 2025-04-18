@@ -1,0 +1,9 @@
+According to the profiling output, the most time is spent during the program run allocating the vector that contains the numbers from which we want to calculate the standard deviation. 
+From our mathlib.h library, the subtraction, addition, and multiplication functions are called just as often, since they are called every time the vector is traversed.
+
+Optimization could be done, for example, by using Welford's algorithm, which allows the mean and standard deviation to be calculated in a single pass through the data without having to store the entire dataset in memory. 
+This approach is not only more memory efficient, but also numerically more stable, reducing the risk of rounding errors.
+
+Welford's algorithm updates the mean and sum of squares of differences from the mean with each new input. 
+In this way, the standard deviation can be continuously calculated without the need for two passes through the data. 
+This method is particularly useful when working with large datasets or data streams where efficiency and accuracy are key.
