@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "../mathlib.h"
+#include <QMessageBox>
 
 bool typingSecondNum = false;
 double firstNum;
@@ -86,22 +87,33 @@ void MainWindow::on_button_equal_released()
         ui->button_multiply->setChecked(false);
 
     } else if (ui->button_divide->isChecked()) {
-        displayNum = mathlib::division(firstNum, secondNum);
-        newResult = QString::number(displayNum, 'g', 15);
-        ui->display->setText(newResult);
-        ui->button_divide->setChecked(false);
-
+        try {
+            displayNum = mathlib::division(firstNum, secondNum);
+            newResult = QString::number(displayNum, 'g', 15);
+            ui->display->setText(newResult);
+            ui->button_divide->setChecked(false);
+        } catch (const std::runtime_error& err) {
+            QMessageBox::warning(this, "Error", err.what());
+        }
     } else if (ui->button_power->isChecked()) {
-        displayNum = mathlib::power(firstNum, secondNum);
-        newResult = QString::number(displayNum, 'g', 15);
-        ui->display->setText(newResult);
-        ui->button_power->setChecked(false);
+        try {
+            displayNum = mathlib::power(firstNum, secondNum);
+            newResult = QString::number(displayNum, 'g', 15);
+            ui->display->setText(newResult);
+            ui->button_power->setChecked(false);
+        } catch (const std::runtime_error& err) {
+            QMessageBox::warning(this, "Error", err.what());
+        }
 
     } else if (ui->button_root->isChecked()) {
-        displayNum = mathlib::root(firstNum, secondNum);
-        newResult = QString::number(displayNum, 'g', 15);
-        ui->display->setText(newResult);
-        ui->button_root->setChecked(false);
+        try {
+            displayNum = mathlib::root(firstNum, secondNum);
+            newResult = QString::number(displayNum, 'g', 15);
+            ui->display->setText(newResult);
+            ui->button_root->setChecked(false);
+        } catch (const std::runtime_error& err) {
+            QMessageBox::warning(this, "Error", err.what());
+        }
     }
 
     typingSecondNum = false;
@@ -135,18 +147,25 @@ void MainWindow::on_button_del_released()
 
 void MainWindow::on_button_factorial_released()
 {
-    // TODO display error when working with non natural number
-    double displayNum = mathlib::factorial(ui->display->text().toDouble());
-    QString newResult = QString::number(displayNum, 'g', 15);
-    ui->display->setText(newResult);
+    try {
+        double displayNum = mathlib::factorial(ui->display->text().toDouble());
+        QString newResult = QString::number(displayNum, 'g', 15);
+        ui->display->setText(newResult);
+    } catch (const std::runtime_error& err) {
+        QMessageBox::warning(this, "Error", err.what());
+    }
 }
 
 
 void MainWindow::on_button_logarithm_released()
 {
-    double displayNum = mathlib::decadic_logarithm(ui->display->text().toDouble());
-    QString newResult = QString::number(displayNum, 'g', 15);
-    ui->display->setText(newResult);
+    try {
+        double displayNum = mathlib::decadic_logarithm(ui->display->text().toDouble());
+        QString newResult = QString::number(displayNum, 'g', 15);
+        ui->display->setText(newResult);
+    } catch (const std::runtime_error& err) {
+        QMessageBox::warning(this, "Error", err.what());
+    }
 }
 
 
