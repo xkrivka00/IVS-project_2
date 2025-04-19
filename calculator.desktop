@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Calculator
+Comment=Qt Calculator
+Exec=calculator
+Icon=calculator-icon
+Terminal=false
+Categories=Utility;

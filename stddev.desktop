@@ -1,6 +1,5 @@
 [Desktop Entry]
 Name=Stddev
-
 Exec=stddev
 Icon=stddev-icon
 Type=Application

@@ -1,6 +1,12 @@
-build/
+build-calculator/
+build-stddev/
 src/profiling/stddev
 src/calculator/CMakeLists.txt.user
 src/.qtcreator/project.json.user
 src/.qtcreator/project.json
 calculator
+stddev
+.vscode/settings.json
+.vscode/c_cpp_properties.json
+src/tests/test
+build/stddev

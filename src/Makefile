@@ -1,39 +1,60 @@
 CC = g++
 CXXFLAGS = -lgtest -lgtest_main -pthread
 
-.PHONY: all pack test clean doc run stddev
 
-# Checks if build directory exists and removes content, then runs cmake
-build:
-	@mkdir -p ../build
-	@rm -rf ../build/*
-	@cd ../build && cmake .. && cmake --build .
-	@cp ../build/src/calculator/calculator ../
+# make 		  - builds binaries for stddev and calculator apps
+# make calc   - builds binary for calculator app
+# make stddev - builds binary for stddev cli app
 
-#TODO: Compiles the project – including the program for profiling
-all: 
+# make pack-calc   - packs the calculator app into a .deb file (for now)
+# make pack-stddev - packs the stddev cli app into a .deb file (for now)
 
-#TODO: Packages the project for submission
-pack:
+.PHONY: all calc stddev pack-calc pack-stddev test clean doc run
 
-#TODO: Removes all files that should not be submitted
-clean: 
+all: calc stddev
+# Build GUI calculator
+calc:
+	@echo "Building calculator..."
+	@mkdir -p ../build-calculator
+	@rm -rf ../build-calculator/*
+	@cd ../build-calculator && cmake .. -DBUILD_CALCULATOR=ON -DBUILD_STDDEV=OFF
+	@cd ../build-calculator && cmake --build .
+	@cp ../build-calculator/calculator ../
+
+# Build terminal stddev program
+stddev:
+	@echo "Building stddev..."
+	@mkdir -p ../build-stddev
+	@rm -rf ../build-stddev/*
+	@cd ../build-stddev && cmake .. -DBUILD_CALCULATOR=OFF -DBUILD_STDDEV=ON
+	@cd ../build-stddev && cmake --build .
+	@cp ../build-stddev/src/profiling/stddev ../
+
+# Package GUI calculator
+pack-calc:
+	@echo "Packaging calculator..."
+	@cd ../build-calculator && cpack
+
+# Package CLI stddev
+pack-stddev:
+	@echo "Packaging stddev..."
+	@cd ../build-stddev && cpack
+# Remove build artifacts
+clean:
 	@rm -f profiling/stddev tests/test
-	@rm -rf build/*
+	@rm -rf ../build-calculator/ ../build-stddev/
+	@rm -f ../calculator ../stddev
 
-#TODO: Runs tests for the math library
+# Run math library tests
 test:
 	@cd tests && $(CC) *.cpp -o $@ $(CXXFLAGS) && ./$@ 
 
-#TODO: Generates the documentation
+# Generate documentation
 doc: 
+	@echo "Generating docs... (not yet implemented)"
 
-#TODO: Runs the main program
+# Run the GUI calculator
 run: 
 	../calculator
 
-#TODO: Compiles the standard deviation program in the profiling directory    
-stddev:
-	@cd profiling && $(CC) *.cpp -o $@ && ./$@
-
- ### END OF FILE MAKEFILE ###
+### END OF FILE MAKEFILE ###

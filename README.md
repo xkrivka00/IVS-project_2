@@ -27,10 +27,30 @@ Viktor Čaloud - 260514
 TODO
 
 ## Installation
-TODO
 
+### Ubuntu / Debian-based Systems
+
+#### GUI Calculator
+1. Download the `calculator.deb` package from the [Releases](#) section.
+2. Open the folder containing the file in a terminal.
+3. Run the following command to install:
+   ```bash 
+   sudo dpkg -i calculator.deb
+#### CLI Stddev
+1. Download the `stddev.deb` package from the [Releases](#) section.
+2. Open the folder containing the file in a terminal.
+3. Run the following command to install:
+   ```bash 
+   sudo dpkg -i stddev.deb
+### Windows
+Comming soon!
 ## Uninstallation
-TODO
+1. Run the following command in terminal to uninstall these programs:
+   ```bash 
+   sudo apt remove calculator
+    # or
+   sudo apt remove stddev
+
 ## License
 This project is licensed under the terms of the GNU General Public License v3.0 (GPL-3.0).
 
