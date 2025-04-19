@@ -178,23 +178,23 @@ TEST(Calculator, Power){
     EXPECT_ANY_THROW(mathlib::power(84, -12));
 }
 
-TEST(Calculator, SquareRoot){
-    EXPECT_EQ(mathlib::square_root(1, 2), 1);
-    EXPECT_EQ(mathlib::square_root(0, 3201), 0);
-    EXPECT_EQ(mathlib::square_root(4, 2), 2);
-    EXPECT_EQ(mathlib::square_root(8, 3), 2);
-    EXPECT_EQ(mathlib::square_root(100, 2), 10);
+TEST(Calculator, Root){
+    EXPECT_EQ(mathlib::root(1, 2), 1);
+    EXPECT_EQ(mathlib::root(0, 3201), 0);
+    EXPECT_EQ(mathlib::root(4, 2), 2);
+    EXPECT_EQ(mathlib::root(8, 3), 2);
+    EXPECT_EQ(mathlib::root(100, 2), 10);
 
-    EXPECT_EQ(mathlib::square_root(1000000, 2), 1000);
+    EXPECT_EQ(mathlib::root(1000000, 2), 1000);
 
-    EXPECT_NEAR(mathlib::square_root(2, 2), 1.414, 1e-3);
-    EXPECT_NEAR(mathlib::square_root(3, 2), 1.732, 1e-3);
-    EXPECT_NEAR(mathlib::square_root(5, 2), 2.236, 1e-3);
-    EXPECT_NEAR(mathlib::square_root(50, 2), 7.071, 1e-3);
+    EXPECT_NEAR(mathlib::root(2, 2), 1.414, 1e-3);
+    EXPECT_NEAR(mathlib::root(3, 2), 1.732, 1e-3);
+    EXPECT_NEAR(mathlib::root(5, 2), 2.236, 1e-3);
+    EXPECT_NEAR(mathlib::root(50, 2), 7.071, 1e-3);
 
-    EXPECT_ANY_THROW(mathlib::square_root(8, 1.1));
-    EXPECT_ANY_THROW(mathlib::square_root(-4, 2));
-    EXPECT_ANY_THROW(mathlib::square_root(4, -2));
+    EXPECT_ANY_THROW(mathlib::root(8, 1.1));
+    EXPECT_ANY_THROW(mathlib::root(-4, 2));
+    EXPECT_ANY_THROW(mathlib::root(4, -2));
 }
 
 TEST(Calculator, Loagrithm){

@@ -74,7 +74,7 @@ public:
      * @return Factorial of num1.
      * @throws std::runtime_error if num1 is negative, non-integer, or greater than 12.
      */
-    int factorial(double num)
+    static int factorial(double num)
     {
         if (num < 0 || num - static_cast<int>(num) != 0) // Safer with fp precision
         {
@@ -139,12 +139,12 @@ public:
      * @throws std::runtime_error if degree is not a natural number > 1 or if base is negative with an even degree.
      */
 
-    static double square_root(double base, double degree)
+    static double root(double base, double degree)
     {
         // Resolve non-natural numbers and degree zero
         if (degree <= 1 || degree - static_cast<int>(degree) != 0)
         {
-            throw std::runtime_error("Degree of a square root must be a natural number");
+            throw std::runtime_error("Degree of a root must be a natural number");
         }
         if (base == 0)
         {
