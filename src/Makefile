@@ -5,14 +5,13 @@ CXXFLAGS = -lgtest -lgtest_main -pthread
 
 # Checks if build directory exists and removes content, then runs cmake
 build:
-	@cd .. && cd ./build
-	@mkdir -p ./build
-	@rm -rf ./build/*
-	@cmake .. && cmake --build .
-	@cp ./src/calculator/calculator ../../../
+	@mkdir -p ../build
+	@rm -rf ../build/*
+	@cd ../build && cmake .. && cmake --build .
+	@cp ../build/src/calculator/calculator ../
 
 #TODO: Compiles the project – including the program for profiling
-all: build
+all: 
 
 #TODO: Packages the project for submission
 pack:
@@ -31,6 +30,7 @@ doc:
 
 #TODO: Runs the main program
 run: 
+	../calculator
 
 #TODO: Compiles the standard deviation program in the profiling directory    
 stddev:
