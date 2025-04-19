@@ -21,7 +21,6 @@ $(EXE): $(SRC)
 
 run: $(EXE)
 	@for file in $(INPUTS); do \
-		echo "Running on $$file..."; \
 		./$(EXE) < $$file; \
 		basename=$${file%.txt}; \
 		mv $(GMON) $(GPROF_PREFIX)_$$basename.out; \
