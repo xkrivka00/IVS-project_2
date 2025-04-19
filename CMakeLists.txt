@@ -7,3 +7,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 enable_testing()
 
 add_subdirectory(src/tests)
+add_subdirectory(src/calculator)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

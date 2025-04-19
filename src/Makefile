@@ -3,8 +3,16 @@ CXXFLAGS = -lgtest -lgtest_main -pthread
 
 .PHONY: all pack test clean doc run stddev
 
+# Checks if build directory exists and removes content, then runs cmake
+build:
+	@cd .. && cd ./build
+	@mkdir -p ./build
+	@rm -rf ./build/*
+	@cmake .. && cmake --build .
+	@cp ./src/calculator/calculator ../../../
+
 #TODO: Compiles the project – including the program for profiling
-all:
+all: build
 
 #TODO: Packages the project for submission
 pack:
@@ -12,6 +20,7 @@ pack:
 #TODO: Removes all files that should not be submitted
 clean: 
 	@rm -f profiling/stddev tests/test
+	@rm -rf build/*
 
 #TODO: Runs tests for the math library
 test:

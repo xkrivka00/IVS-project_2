@@ -2,3 +2,6 @@
 /.vscode
 build/
 src/profiling/stddev
+src/calculator/CMakeLists.txt.user
+src/.qtcreator/project.json.user
+src/.qtcreator/project.json

@@ -59,3 +59,7 @@ install(TARGETS calculator
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(calculator)
 endif()
+
+
+find_package(Threads REQUIRED)
+target_link_libraries(calculator PRIVATE Threads::Threads)
