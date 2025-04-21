@@ -47,6 +47,7 @@ void MainWindow::digit_pressed()
 {
     QPushButton *button = (QPushButton*)sender();
     double displayNum;
+    QString newResult;
 
     if ((ui->button_add->isChecked() || ui->button_subtract->isChecked()
         || ui->button_multiply->isChecked() || ui->button_divide->isChecked()
@@ -54,11 +55,18 @@ void MainWindow::digit_pressed()
     {
         displayNum = (button->text()).toDouble();
         typingSecondNum = true;
+        newResult = QString::number(displayNum, 'g', 15);
+
     } else {
-        displayNum = (ui->display->text() + button->text()).toDouble();
+        if (ui->display->text().contains('.') && button->text() == "0") {
+            newResult = ui->display->text() + button->text();
+        } else {
+            displayNum = (ui->display->text() + button->text()).toDouble();
+            newResult = QString::number(displayNum, 'g', 15);
+        }
+
     }
 
-    QString newResult = QString::number(displayNum, 'g', 15);
     ui->display->setText(newResult);
 }
 
@@ -176,5 +184,14 @@ void MainWindow::binary_operation()
     firstNum = ui->display->text().toDouble();
 
     button->setChecked(true);
+}
+
+
+void MainWindow::on_button_help_released()
+{
+    QMessageBox::information(this, "help",
+        "Calculator Help\n\n"
+        "This is a simple calculator with basic and some advanced features.\n"
+        "... [TBD]");
 }
 
