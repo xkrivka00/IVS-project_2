@@ -22,8 +22,8 @@ ROZDĚLENÍ PRÁCE
 (Není definitivní, ale dotyčný za danou část úkolu zodpovídá)
 
 xkrivka00 - Nastavení gitu, vytvoření repozitáře, kvalita kódu, vytvoření installeru
-xsemerv00 - Matematická knihovna
-xjanotf00 - GUI, Profiling
+xsemerv00 - Matematická knihovna, Testy na knihovnu, Profiling
+xjanotf00 - GUI, Mockup
 260514 - Vytvoření makefile, dokumentace, manuál
 
 + vzájemná kontrola práce, pomoc ostatních při nesnázích
