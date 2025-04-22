@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::Calculator)
 {
     ui->setupUi(this);
+    setWindowFlags(Qt::Window);
     connect(ui->button_0, SIGNAL(released()), this, SLOT(digit_pressed()));
     connect(ui->button_1, SIGNAL(released()), this, SLOT(digit_pressed()));
     connect(ui->button_2, SIGNAL(released()), this, SLOT(digit_pressed()));

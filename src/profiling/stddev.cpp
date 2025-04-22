@@ -62,13 +62,6 @@ int main() {
     //Calculate the standard deviation
     double result = compute_stddev(numbers);
     std::cout << result << std::endl;
-    // Clear input buffer just in case
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
-    // Pause always
-    std::cout << "Press Enter to exit..." << std::endl;
-    std::cin.get();
-
     return 0;
 }
 /** END OF FILE STDDEV.CPP*/

@@ -3,7 +3,10 @@ project(calculator VERSION 1.0.0 LANGUAGES CXX)
 
 # Build options
 option(BUILD_CALCULATOR "Build GUI calculator" ON)
-option(BUILD_STDDEV "Build CLI stddev calculator" ON)
+
+# Deprecated - no need to build and install stddev but great for practice
+option(BUILD_STDDEV "Build CLI stddev calculator" ON) 
+
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
