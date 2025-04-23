@@ -41,7 +41,7 @@ double compute_stddev(const std::vector<double>& numbers) {
     
     // Calculate sample standard deviation
     double result_before_div = mathlib::division(sum_of_squared_diffs, (count - 1));
-    return mathlib::root(result_before_div, 2);
+    return mathlib::root(2, result_before_div);
 }
 
 int main() {
