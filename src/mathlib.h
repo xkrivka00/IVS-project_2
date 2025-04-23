@@ -139,7 +139,7 @@ public:
      * @throws std::runtime_error if degree is not a natural number > 1 or if base is negative with an even degree.
      */
 
-    static double root(double base, double degree)
+    static double root(double degree, double base)
     {
         // Resolve non-natural numbers and degree zero
         if (degree <= 1 || degree - static_cast<int>(degree) != 0)
