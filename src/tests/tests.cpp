@@ -10,8 +10,8 @@
 #include <gtest/gtest.h>
 #include "../mathlib.h"
 
-//Temporary run: g++ tests.cpp -o tests -lgtest -lgtest_main -pthread
-//               ./tests
+///Temporary run: g++ tests.cpp -o tests -lgtest -lgtest_main -pthread
+///               ./tests
 
 TEST(Calculator, Add){
     EXPECT_EQ(mathlib::addition(1,1), 2);

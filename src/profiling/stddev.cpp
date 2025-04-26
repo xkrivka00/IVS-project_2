@@ -29,17 +29,17 @@ double compute_stddev(const std::vector<double>& numbers) {
         sum = mathlib::addition(sum, num);
     }
 
-    // Calculate arithmetic mean
+    /// Calculate arithmetic mean
     double average = mathlib::division(sum, count);
     double sum_of_squared_diffs = 0;
 
-    // Get sum of squared differences
+    /// Get sum of squared differences
     for (auto num : numbers) {
         double diff = mathlib::subtraction(num, average);
         sum_of_squared_diffs += mathlib::multiplication(diff, diff);
     }
     
-    // Calculate sample standard deviation
+    /// Calculate sample standard deviation
     double result_before_div = mathlib::division(sum_of_squared_diffs, (count - 1));
     return mathlib::root(2, result_before_div);
 }
@@ -48,18 +48,18 @@ int main() {
     std::vector<double> numbers; ///< Container to store input numbers
     double number;
 
-    // Read real numbers from standard input
+    /// Read real numbers from standard input
     while (scanf("%lf", &number) == 1) {
         numbers.push_back(number);
     }
 
-    // Check if there are enough numbers to compute standard deviation
+    /// Check if there are enough numbers to compute standard deviation
     if (numbers.size() <= 1) {
         std::cerr << "Invalid input.\n";
         return 1;
     }
 
-    //Calculate the standard deviation
+    /// Calculate the standard deviation
     double result = compute_stddev(numbers);
     std::cout << result << std::endl;
     return 0;

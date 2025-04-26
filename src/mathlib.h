@@ -141,7 +141,7 @@ public:
 
     static double root(double degree, double base)
     {
-        // Resolve non-natural numbers and degree zero
+        /// Resolve non-natural numbers and degree zero
         if (degree <= 1 || degree - static_cast<int>(degree) != 0)
         {
             throw std::runtime_error("Degree of a root must be a natural number");
