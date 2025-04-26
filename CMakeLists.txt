@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(calculator VERSION 1.0.0 LANGUAGES CXX)
 
-# Build options
+# Build options - deprecated
 option(BUILD_CALCULATOR "Build GUI calculator" ON)
 
 # Deprecated - no need to build and install stddev but great for practice
@@ -55,7 +55,11 @@ if(BUILD_STDDEV)
 endif()
 
 # ========== CPACK CONFIG ==========
-set(CPACK_GENERATOR "DEB")
+if(WIN32)
+    set(CPACK_GENERATOR "NSIS")
+else()
+    set(CPACK_GENERATOR "DEB")
+endif()
 set(CPACK_SOURCE_GENERATOR "")
 
 if(BUILD_CALCULATOR AND NOT BUILD_STDDEV)
@@ -75,6 +79,13 @@ endif()
 set(CPACK_PACKAGE_CONTACT "xkrivka00@stud.fit.vutbr.cz")
 set(CPACK_PACKAGE_VENDOR "Team Nullpointers")
 set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Team Nullpointers")
+
+if(WIN32)
+    set(CPACK_NSIS_DISPLAY_NAME "Calculator")
+    set(CPACK_NSIS_PACKAGE_NAME "Calculator Installer")
+    set(CPACK_NSIS_CONTACT "xkrivka00@stud.fit.vutbr.cz")
+    set(CPACK_NSIS_MODIFY_PATH ON)  # Adds the install dir to system PATH
+endif()
 
 include(CPack)
 

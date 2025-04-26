@@ -11,14 +11,24 @@ CXXFLAGS = -lgtest -lgtest_main -pthread
 
 .PHONY: all calc stddev pack-calc pack-stddev test clean doc run
 
-all: calc stddev
+all: build stddev
 # Build GUI calculator
-calc:
-	@echo "Building calculator..."
-	@mkdir -p ../build-calculator
-	@rm -rf ../build-calculator/*
-	@cd ../build-calculator && cmake .. -DBUILD_CALCULATOR=ON -DBUILD_STDDEV=OFF
-	@cd ../build-calculator && cmake --build .
+build:
+	@echo "Building DEB and EXE installers..."
+
+	# Build calculator and create DEB
+	@mkdir -p ../build
+	@rm -rf ../build/*
+	@cd ../build && cmake .. -DBUILD_CALCULATOR=ON -DBUILD_STDDEV=OFF
+	@cd ../build && cmake --build .
+	@cd ../build && cpack -G DEB
+
+	# Build calculator and create EXE
+	@mkdir -p ../build-calculator-windows
+	@rm -rf ../build-calculator-windows/*
+	@cd ../build-calculator-windows && cmake .. -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=../cmake/Toolchain-mingw64.cmake -DBUILD_CALCULATOR=ON -DBUILD_STDDEV=OFF
+	@cd ../build-calculator-windows && cmake --build .
+	@cd ../build-calculator-windows && cpack -G NSIS
 	
 # Build terminal stddev program
 stddev:
@@ -37,7 +47,7 @@ pack:
 # Remove build artifacts
 clean:
 	@rm -f profiling/stddev tests/test
-	@rm -rf ../build-calculator/ ../build-stddev/
+	@rm -rf ../build/ ../build-stddev/
 
 # Run math library tests
 test:
@@ -49,6 +59,6 @@ doc:
 
 # Run the GUI calculator
 run: 
-	../build-calculator/calculator
+	../build/calculator
 
 ### END OF FILE MAKEFILE ###

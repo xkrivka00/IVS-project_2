@@ -1,4 +1,4 @@
-build-calculator/
+build/
 build-stddev/
 src/profiling/stddev
 src/calculator/CMakeLists.txt.user
@@ -10,3 +10,5 @@ stddev
 .vscode/c_cpp_properties.json
 src/tests/test
 build/stddev
+/build-calculator-windows
+/build-windows
