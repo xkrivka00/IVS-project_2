@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(calculator VERSION 1.0.0 LANGUAGES CXX)
 
-# Build options
+# Build options - deprecated
 option(BUILD_CALCULATOR "Build GUI calculator" ON)
 
 # Deprecated - no need to build and install stddev but great for practice
@@ -55,6 +55,7 @@ if(BUILD_STDDEV)
 endif()
 
 # ========== CPACK CONFIG ==========
+
 set(CPACK_GENERATOR "DEB")
 set(CPACK_SOURCE_GENERATOR "")
 
@@ -75,6 +76,7 @@ endif()
 set(CPACK_PACKAGE_CONTACT "xkrivka00@stud.fit.vutbr.cz")
 set(CPACK_PACKAGE_VENDOR "Team Nullpointers")
 set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Team Nullpointers")
+
 
 include(CPack)
 

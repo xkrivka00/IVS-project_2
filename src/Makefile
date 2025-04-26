@@ -11,14 +11,20 @@ CXXFLAGS = -lgtest -lgtest_main -pthread
 
 .PHONY: all calc stddev pack-calc pack-stddev test clean doc run
 
-all: calc stddev
+all: build stddev
 # Build GUI calculator
-calc:
-	@echo "Building calculator..."
-	@mkdir -p ../build-calculator
-	@rm -rf ../build-calculator/*
-	@cd ../build-calculator && cmake .. -DBUILD_CALCULATOR=ON -DBUILD_STDDEV=OFF
-	@cd ../build-calculator && cmake --build .
+build:
+	@mkdir -p ../build
+	@rm -rf ../build/*
+	@cd ../build && cmake .. -DBUILD_CALCULATOR=ON -DBUILD_STDDEV=OFF
+	@cd ../build && cmake --build .
+	@cd ../build && cpack -G DEB
+
+	@mkdir -p ../build-stddev
+	@rm -rf ../build-stddev/*
+	@cd ../build-stddev && cmake .. -DBUILD_CALCULATOR=OFF -DBUILD_STDDEV=ON
+	@cd ../build-stddev && cmake --build .
+	@cd ../build-stddev && cpack -G DEB
 	
 # Build terminal stddev program
 stddev:
@@ -37,7 +43,7 @@ pack:
 # Remove build artifacts
 clean:
 	@rm -f profiling/stddev tests/test
-	@rm -rf ../build-calculator/ ../build-stddev/
+	@rm -rf ../build/ ../build-stddev/
 
 # Run math library tests
 test:
@@ -49,6 +55,6 @@ doc:
 
 # Run the GUI calculator
 run: 
-	../build-calculator/calculator
+	../build/calculator
 
 ### END OF FILE MAKEFILE ###
