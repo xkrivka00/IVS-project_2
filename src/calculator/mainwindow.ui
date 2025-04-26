@@ -197,38 +197,6 @@ QPushButton:pressed {
       </property>
      </widget>
     </item>
-    <item row="10" column="1" colspan="2">
-     <widget class="QPushButton" name="button_0">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <family>Franklin Gothic Book</family>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-   border: 1px solid #d2e4fa;
-	background-color: #d2e4fa;
-	border-radius: 10px;
-}
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #c3dcfa, stop: 1 #b1d2fa);
-	 border-radius: 10px;
-}
-</string>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-    </item>
     <item row="9" column="2">
      <widget class="QPushButton" name="button_2">
       <property name="sizePolicy">
@@ -711,6 +679,9 @@ QPushButton:pressed {
         <bold>false</bold>
        </font>
       </property>
+      <property name="focusPolicy">
+       <enum>Qt::FocusPolicy::StrongFocus</enum>
+      </property>
       <property name="layoutDirection">
        <enum>Qt::LayoutDirection::LeftToRight</enum>
       </property>
@@ -837,6 +808,70 @@ QPushButton:pressed {
       </property>
       <property name="text">
        <string>help</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="2">
+     <widget class="QPushButton" name="button_0">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>Franklin Gothic Book</family>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+   border: 1px solid #d2e4fa;
+	background-color: #d2e4fa;
+	border-radius: 10px;
+}
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #c3dcfa, stop: 1 #b1d2fa);
+	 border-radius: 10px;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="1">
+     <widget class="QPushButton" name="button_sign">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>Franklin Gothic Book</family>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+   border: 1px solid #d2e4fa;
+	background-color: #d2e4fa;
+	border-radius: 10px;
+}
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #c3dcfa, stop: 1 #b1d2fa);
+	 border-radius: 10px;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>+/-</string>
       </property>
      </widget>
     </item>

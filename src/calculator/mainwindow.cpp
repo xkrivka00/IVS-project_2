@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include "../mathlib.h"
 #include <QMessageBox>
+#include <QKeyEvent>
 
 bool typingSecondNum = false;
 double firstNum;
@@ -38,6 +39,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->button_root->setCheckable(true);
 
 }
+
+
 
 MainWindow::~MainWindow()
 {
@@ -191,8 +194,69 @@ void MainWindow::binary_operation()
 void MainWindow::on_button_help_released()
 {
     QMessageBox::information(this, "help",
-        "Calculator Help\n\n"
-        "This is a simple calculator with basic and some advanced features.\n"
-        "... [TBD]");
+     "Calculator Help (Version 1.0)\n\n"
+     "This is a simple calculator with basic and some advanced features\n\n"
+     "- Enter numbers using the digit buttons (0-9) or type the keys 0-9\n"
+     "- Add a decimal point with the '.' or ',' button or key.\n"
+     "- Use the operation buttons (+, -, *, /) or press the corresponding keys (+, -, *, /)\n"
+     "- For exponentiation, use the '^' button or '^' key, then enter the exponent and press '='\n"
+     "- For root, enter degree first, then use the '√' button or 'R' key, lastly enter base (degree has to be natural ≥ 1, base can't be negative with an even degree) \n"
+     "- For decadic logarithm, use the 'log' button or 'L' key (input must be positive)\n"
+     "- Press '=' or Enter to see the result\n"
+     "- The '!' button or '!' key calculates the factorial (positive integers ≤ 12 only)\n"
+     "- Press 'C' or the 'clear' button to clear the display\n"
+     "- Press 'S' or the '+/-' button to change the number's sign\n"
+     "- Press '?', F1 or the help button to show this help window\n"
+     "- If an error occurs (e.g., invalid input), a message will appear.\n\n"
+     "Created by team nullpointers for IVS, VUT FIT");
 }
+
+void MainWindow::on_button_sign_released()
+{
+    double displayNum = ui->display->text().toDouble() * (-1);
+    QString newResult = QString::number(displayNum, 'g', 15);
+    ui->display->setText(newResult);
+
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *event) {
+    // Digits 0-9
+    if (event->key() == Qt::Key_0) ui->button_0->click();
+    else if (event->key() == Qt::Key_1) ui->button_1->click();
+    else if (event->key() == Qt::Key_2) ui->button_2->click();
+    else if (event->key() == Qt::Key_3) ui->button_3->click();
+    else if (event->key() == Qt::Key_4) ui->button_4->click();
+    else if (event->key() == Qt::Key_5) ui->button_5->click();
+    else if (event->key() == Qt::Key_6) ui->button_6->click();
+    else if (event->key() == Qt::Key_7) ui->button_7->click();
+    else if (event->key() == Qt::Key_8) ui->button_8->click();
+    else if (event->key() == Qt::Key_9) ui->button_9->click();
+    // Operators
+    else if (event->key() == Qt::Key_Plus) ui->button_add->click();
+    else if (event->key() == Qt::Key_Minus) ui->button_subtract->click();
+    else if (event->key() == Qt::Key_Asterisk) ui->button_multiply->click();
+    else if (event->key() == Qt::Key_Slash) ui->button_divide->click();
+    // Equals (Enter key)
+    else if (event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return) ui->button_equal->click();
+    // Clear (C key)
+    else if (event->key() == Qt::Key_C) ui->button_clear->click();
+    // delete (Backspace key)
+    else if (event->key() == Qt::Key_Backspace) ui->button_del->click();
+    // Factorial (! key)
+    else if (event->key() == Qt::Key_Exclam) ui->button_factorial->click();
+    // Power (^ key)
+    else if (event->key() == Qt::Key_AsciiCircum) ui->button_power->click();
+    // Root (R key)
+    else if (event->key() == Qt::Key_R) ui->button_root->click();
+    // Logarithm (L key)
+    else if (event->key() == Qt::Key_L) ui->button_logarithm->click();
+    // Change sign (S key)
+    else if (event->key() == Qt::Key_S) ui->button_sign->click();
+    // Decimal point (, or .)
+    else if (event->key() == Qt::Key_Period || event->key() == Qt::Key_Comma) ui->button_point->click();
+    // Help (? key or F1)
+    else if (event->key() == Qt::Key_Question || event->key() == Qt::Key_F1) ui->button_help->click();
+    else QMainWindow::keyPressEvent(event);
+}
+
 

@@ -20,6 +20,9 @@ public:
 private:
     Ui::Calculator *ui;
 
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
+
 private slots:
     void digit_pressed();
     void binary_operation();
@@ -31,5 +34,6 @@ private slots:
     void on_button_factorial_released();
     void on_button_logarithm_released();
     void on_button_help_released();
+    void on_button_sign_released();
 };
 #endif /// MAINWINDOW_H
