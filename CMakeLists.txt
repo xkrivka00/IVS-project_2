@@ -55,11 +55,8 @@ if(BUILD_STDDEV)
 endif()
 
 # ========== CPACK CONFIG ==========
-if(WIN32)
-    set(CPACK_GENERATOR "NSIS")
-else()
-    set(CPACK_GENERATOR "DEB")
-endif()
+
+set(CPACK_GENERATOR "DEB")
 set(CPACK_SOURCE_GENERATOR "")
 
 if(BUILD_CALCULATOR AND NOT BUILD_STDDEV)
@@ -80,12 +77,6 @@ set(CPACK_PACKAGE_CONTACT "xkrivka00@stud.fit.vutbr.cz")
 set(CPACK_PACKAGE_VENDOR "Team Nullpointers")
 set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Team Nullpointers")
 
-if(WIN32)
-    set(CPACK_NSIS_DISPLAY_NAME "Calculator")
-    set(CPACK_NSIS_PACKAGE_NAME "Calculator Installer")
-    set(CPACK_NSIS_CONTACT "xkrivka00@stud.fit.vutbr.cz")
-    set(CPACK_NSIS_MODIFY_PATH ON)  # Adds the install dir to system PATH
-endif()
 
 include(CPack)
 

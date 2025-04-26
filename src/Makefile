@@ -14,21 +14,17 @@ CXXFLAGS = -lgtest -lgtest_main -pthread
 all: build stddev
 # Build GUI calculator
 build:
-	@echo "Building DEB and EXE installers..."
-
-	# Build calculator and create DEB
 	@mkdir -p ../build
 	@rm -rf ../build/*
 	@cd ../build && cmake .. -DBUILD_CALCULATOR=ON -DBUILD_STDDEV=OFF
 	@cd ../build && cmake --build .
 	@cd ../build && cpack -G DEB
 
-	# Build calculator and create EXE
-	@mkdir -p ../build-calculator-windows
-	@rm -rf ../build-calculator-windows/*
-	@cd ../build-calculator-windows && cmake .. -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=../cmake/Toolchain-mingw64.cmake -DBUILD_CALCULATOR=ON -DBUILD_STDDEV=OFF
-	@cd ../build-calculator-windows && cmake --build .
-	@cd ../build-calculator-windows && cpack -G NSIS
+	@mkdir -p ../build-stddev
+	@rm -rf ../build-stddev/*
+	@cd ../build-stddev && cmake .. -DBUILD_CALCULATOR=OFF -DBUILD_STDDEV=ON
+	@cd ../build-stddev && cmake --build .
+	@cd ../build-stddev && cpack -G DEB
 	
 # Build terminal stddev program
 stddev:
