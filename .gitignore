@@ -12,3 +12,9 @@ src/tests/test
 build/stddev
 /build-calculator-windows
 /build-windows
+.vscode/launch.json
+.vscode/tasks.json
+a.out
+/build/_CPack_Packages
+/build
+/doxygen_output

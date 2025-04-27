@@ -5,8 +5,7 @@
  * @brief       Program for calculating the standard deviation of input numbers.
  *
  * This program reads real numbers from standard input, calculates their average,
- * and then computes the standard deviation using an external library functions
- * from our 'mathlib.h'.
+ * and then computes the standard deviation using library functions from our 'mathlib.h'.
  *
  * @return Returns 0 when success, 1 if not (less then 2 numbers on input, wrong file, ...)
  *
