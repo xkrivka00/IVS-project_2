@@ -9,7 +9,7 @@ The program is based on a modular architecture, with the basic mathematical func
 
 ### Platform
 
-Ubuntu 64-bit
+Linux - Ubuntu 64-bit
 
 ## Authors
 
@@ -22,7 +22,25 @@ Viktor Čaloud - 260514
 
 ## Prerequisites
 
-TODO
+### Operating System:
+- Linux (e.g., Ubuntu 20.04+ or compatible distributions)
+
+### Compiler:
+- g++ version >= 9
+
+### Build Tools:
+- cmake version >= 3.16
+- make
+
+### Libraries:
+- Qt5 (or alternatively Qt6) with the following modules:
+  - Core
+  - Gui
+  - Widgets
+- libc6 (this is a core library, typically always available in the system)
+
+### Additional Tools:
+- cpack (bundled with cmake, used for generating .deb packages)
 
 ## Installation
 
@@ -33,13 +51,18 @@ TODO
 2. Open the folder containing the file in a terminal.
 3. Run the following command to install:
    ```bash 
-   sudo dpkg -i calculator.deb
-### Windows
-Comming soon!
+   sudo apt install ./calculator.deb
+#### GUI Calculator
+1. Download the `stddev.deb` package from the [Releases](#) section.
+2. Open the folder containing the file in a terminal.
+3. Run the following command to install:
+   ```bash 
+   sudo dpkg -i ./stddev.deb
 ## Uninstallation
 1. Run the following command in terminal to uninstall these programs:
    ```bash 
    sudo apt remove calculator
+   sudo apt remove stddev
 ## License
 This project is licensed under the terms of the GNU General Public License v3.0 (GPL-3.0).
 

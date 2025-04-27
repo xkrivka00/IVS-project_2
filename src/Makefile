@@ -15,16 +15,10 @@ all: build stddev
 # Build GUI calculator
 build:
 	@mkdir -p ../build
-	@rm -rf ../build/*
-	@cd ../build && cmake .. -DBUILD_CALCULATOR=ON -DBUILD_STDDEV=OFF
-	@cd ../build && cmake --build .
-	@cd ../build && cpack -G DEB
+	@cd ../build && cmake .. -DBUILD_CALCULATOR=ON -DBUILD_STDDEV=OFF && cmake --build . && cpack -G DEB
 
 	@mkdir -p ../build-stddev
-	@rm -rf ../build-stddev/*
-	@cd ../build-stddev && cmake .. -DBUILD_CALCULATOR=OFF -DBUILD_STDDEV=ON
-	@cd ../build-stddev && cmake --build .
-	@cd ../build-stddev && cpack -G DEB
+	@cd ../build-stddev && cmake .. -DBUILD_CALCULATOR=OFF -DBUILD_STDDEV=ON && cmake --build . && cpack -G DEB
 	
 # Build terminal stddev program
 stddev:
