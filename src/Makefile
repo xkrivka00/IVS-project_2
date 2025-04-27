@@ -15,7 +15,7 @@ all: build stddev
 # Build GUI calculator
 build:
 	@mkdir -p ../build
-	@cd ../build && cmake .. -DBUILD_CALCULATOR=ON -DBUILD_STDDEV=OFF && cmake --build . && cpack -G DEB
+	@cd ../build && cmake .. -DBUILD_CALCULATOR=ON -DBUILD_STDDEV=OFF -DCMAKE_BUILD_TYPE=Debug && cmake --build . && cpack -G DEB
 
 	@mkdir -p ../build-stddev
 	@cd ../build-stddev && cmake .. -DBUILD_CALCULATOR=OFF -DBUILD_STDDEV=ON && cmake --build . && cpack -G DEB
