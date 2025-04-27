@@ -1,21 +1,14 @@
 CC = g++
 CXXFLAGS = -lgtest -lgtest_main -pthread
 
-
-# make 		  - builds binaries for stddev and calculator apps
-# make calc   - builds binary for calculator app
-# make stddev - builds binary for stddev cli app
-
-# make pack-calc   - packs the calculator app into a .deb file (for now)
-# make pack-stddev - packs the stddev cli app into a .deb file (for now)
-
 .PHONY: all calc stddev pack-calc pack-stddev test clean doc run
 
-all: build stddev
-# Build GUI calculator
+# make 		  - builds binaries for stddev and calculator apps, creates their installers
+all: build 
+
 build:
 	@mkdir -p ../build
-	@cd ../build && cmake .. -DBUILD_CALCULATOR=ON -DBUILD_STDDEV=OFF -DCMAKE_BUILD_TYPE=Debug && cmake --build . && cpack -G DEB
+	@cd ../build && cmake .. -DBUILD_CALCULATOR=ON -DBUILD_STDDEV=OFF && cmake --build . && cpack -G DEB
 
 	@mkdir -p ../build-stddev
 	@cd ../build-stddev && cmake .. -DBUILD_CALCULATOR=OFF -DBUILD_STDDEV=ON && cmake --build . && cpack -G DEB
@@ -33,7 +26,6 @@ stddev:
 pack:
 # TODO
 
-
 # Remove build artifacts
 clean:
 	@rm -f profiling/stddev tests/test
@@ -45,7 +37,7 @@ test:
 
 # Generate documentation
 doc: 
-	@echo "Generating docs... (not yet implemented)"
+	@cd ../ && doxygen Doxyfile
 
 # Run the GUI calculator
 run: 
