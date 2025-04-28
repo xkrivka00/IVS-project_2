@@ -21,7 +21,6 @@ stddev:
 	@mkdir -p ../build-stddev
 	@rm -rf ../build-stddev/*
 	@cd ../build-stddev && cmake .. -DBUILD_CALCULATOR=OFF -DBUILD_STDDEV=ON && cmake --build .
-# ../build-stddev/src/profiling/stddev - pro spusteni
 
 # Package GUI calculator
 pack: clean all doc
@@ -37,7 +36,7 @@ pack: clean all doc
 # Remove build artifacts
 clean:
 	@rm -f profiling/stddev tests/test 
-	@rm -rf ../build/ ../build-stddev/
+	@rm -rf ../build/ ../build-stddev/ ../doxygen_output
 
 # Run math library tests
 test:
