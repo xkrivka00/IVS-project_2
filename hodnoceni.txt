@@ -1,0 +1,4 @@
+xkrivka00   100 - Nastavení gitu, vytvoření repozitáře, kvalita kódu, vytvoření installeru
+xsemerv00   100 - Matematická knihovna, Testy na knihovnu, Profiling
+xjanotf00   100 - GUI, Mockup
+260514      100 - Vytvoření makefile, dokumentace, manuál
