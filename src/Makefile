@@ -44,7 +44,7 @@ test:
 
 # Generate documentation
 doc: 
-	doxygen Doxyfile && rm -f warning_doxygen.txt
+	cd .. && doxygen Doxyfile && rm -f warning_doxygen.txt
 
 # Run the GUI calculator
 run: 

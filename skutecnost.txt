@@ -1,0 +1,8 @@
+Team Nullpointers
+
+Rozdíly mezi plánem a skutečností:
+
+Termíny jsme celkem úspěšně dodržovali. Nastalo jenom pár výjimek, které jsme nestihli dodělat včas, ale úkoly byly vždy splněny během následujícího týdne, takže zbytek týmu nemusel čekat.
+
+Také jsme původně měli v plánu vytvořit instalátor i pro Windows, ale nestihli jsme.
+Několik úkolů jsme si mezi sebou prohodili, abychom si navzájem snížili vytížení v náročných částech semestru.

@@ -52,7 +52,7 @@ Viktor Čaloud - 260514
 3. Run the following command to install:
    ```bash 
    sudo apt install ./calculator.deb
-#### GUI Calculator
+#### Stddev CLI program
 1. Download the `stddev.deb` package from the [Releases](#) section.
 2. Open the folder containing the file in a terminal.
 3. Run the following command to install:
