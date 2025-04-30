@@ -15,7 +15,7 @@ build:
 	@mkdir -p ../build-stddev
 	@cd ../build-stddev && cmake .. -DBUILD_CALCULATOR=OFF -DBUILD_STDDEV=ON && cmake --build . && cpack -G DEB
 	
-# Build terminal stddev program
+# Build terminal stddev program binary
 stddev:
 	@echo "Building stddev..."
 	@mkdir -p ../build-stddev

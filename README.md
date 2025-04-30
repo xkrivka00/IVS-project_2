@@ -1,5 +1,5 @@
 # Calculator with GUI
-Second project for the IVS course
+Second project for the IVS course - Nullpointers
 
 ### Description
 
