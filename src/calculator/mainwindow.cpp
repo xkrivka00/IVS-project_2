@@ -13,15 +13,6 @@
 #include <QMessageBox>
 #include <QKeyEvent>
 
-/**
- * @brief Flag to indicate if the second number is being typed
- */
-bool typingSecondNum = false;
-
-/**
- * @brief Variable to store the first number for operations
- */
-double firstNum;
 
 /**
  * @brief Main constructor for the calculator window.
@@ -54,14 +45,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->button_divide, SIGNAL(released()), this, SLOT(binary_operation()));
     connect(ui->button_power, SIGNAL(released()), this, SLOT(binary_operation()));
     connect(ui->button_root, SIGNAL(released()), this, SLOT(binary_operation()));
-
-    // Set operator buttons as checkable
-    ui->button_add->setCheckable(true);
-    ui->button_subtract->setCheckable(true);
-    ui->button_multiply->setCheckable(true);
-    ui->button_divide->setCheckable(true);
-    ui->button_power->setCheckable(true);
-    ui->button_root->setCheckable(true);
 }
 
 /**
@@ -83,7 +66,7 @@ void MainWindow::digit_pressed()
     QString newResult;
 
     // Handle number input with operator checked
-    if ((ui->button_add->isChecked() || ui->button_subtract->isChecked() || ui->button_multiply->isChecked() || ui->button_divide->isChecked() || ui->button_power->isChecked() || ui->button_root->isChecked()) && !typingSecondNum)
+    if ((currentOperation != "null") && !typingSecondNum)
     {
         displayNum = (button->text()).toDouble();
         typingSecondNum = true;
@@ -117,70 +100,64 @@ void MainWindow::on_button_equal_released()
     secondNum = ui->display->text().toDouble();
 
     // Do the corresponding operation based on the operator
-    if (ui->button_add->isChecked())
+    if (currentOperation == "add")
     {
         displayNum = mathlib::addition(firstNum, secondNum);
         newResult = QString::number(displayNum, 'g', 15);
         ui->display->setText(newResult);
-        ui->button_add->setChecked(false);
     }
-    else if (ui->button_subtract->isChecked())
+    else if (currentOperation == "subtract")
     {
         displayNum = mathlib::subtraction(firstNum, secondNum);
         newResult = QString::number(displayNum, 'g', 15);
         ui->display->setText(newResult);
-        ui->button_subtract->setChecked(false);
     }
-    else if (ui->button_multiply->isChecked())
+    else if (currentOperation == "multiply")
     {
         displayNum = mathlib::multiplication(firstNum, secondNum);
         newResult = QString::number(displayNum, 'g', 15);
         ui->display->setText(newResult);
-        ui->button_multiply->setChecked(false);
     }
-    else if (ui->button_divide->isChecked())
+    else if (currentOperation == "divide")
     {
         try
         {
             displayNum = mathlib::division(firstNum, secondNum);
             newResult = QString::number(displayNum, 'g', 15);
             ui->display->setText(newResult);
-            ui->button_divide->setChecked(false);
         }
         catch (const std::runtime_error &err)
         {
             QMessageBox::warning(this, "Error", err.what());
         }
     }
-    else if (ui->button_power->isChecked())
+    else if (currentOperation == "power")
     {
         try
         {
             displayNum = mathlib::power(firstNum, secondNum);
             newResult = QString::number(displayNum, 'g', 15);
             ui->display->setText(newResult);
-            ui->button_power->setChecked(false);
         }
         catch (const std::runtime_error &err)
         {
             QMessageBox::warning(this, "Error", err.what());
         }
     }
-    else if (ui->button_root->isChecked())
+    else if (currentOperation == "root")
     {
         try
         {
             displayNum = mathlib::root(firstNum, secondNum);
             newResult = QString::number(displayNum, 'g', 15);
             ui->display->setText(newResult);
-            ui->button_root->setChecked(false);
         }
         catch (const std::runtime_error &err)
         {
             QMessageBox::warning(this, "Error", err.what());
         }
     }
-
+    currentOperation = "null";
     typingSecondNum = false;
 }
 
@@ -199,10 +176,13 @@ void MainWindow::on_button_point_released()
 
 /**
  * @brief Slot triggered when the clear button is released.
+ * Sets operation to null.
  * Clears the display.
  */
 void MainWindow::on_button_clear_released()
 {
+    typingSecondNum = false;  // clear the flag
+    currentOperation = "null";
     ui->display->setText("0");
 }
 
@@ -261,15 +241,25 @@ void MainWindow::on_button_logarithm_released()
 
 /**
  * @brief Slot triggered by the binary operator buttons (+, -, *, /, ^, √).
- * Sets the first number and checks the operator button.
+ * Sets the first number and current operation.
+ * Optionally triggers equal button.
  */
 void MainWindow::binary_operation()
 {
-    QPushButton *button = (QPushButton *)sender();
+    if (typingSecondNum) {
+        this->on_button_equal_released();
+    }
 
+    QPushButton *button = (QPushButton *)sender();
     firstNum = ui->display->text().toDouble();
 
-    button->setChecked(true);
+    if (button == ui->button_add) currentOperation = "add";
+    else if (button == ui->button_subtract) currentOperation = "subtract";
+    else if (button == ui->button_multiply) currentOperation = "multiply";
+    else if (button == ui->button_divide) currentOperation = "divide";
+    else if (button == ui->button_power) currentOperation = "power";
+    else if (button == ui->button_root) currentOperation = "root";
+    else currentOperation = "null";
 }
 
 /**
