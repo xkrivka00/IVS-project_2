@@ -3,6 +3,8 @@ Second project for the IVS course - Nullpointers
 
 ### Description
 
+User manual can be found in the file [dokumentace.pdf](./dokumentace.pdf)
+
 This application is an advanced calculator with a graphical user interface that supports basic mathematical operations (+, -, *, /), factorial calculation, exponentiation with natural exponents, and the common square root.  
 
 The program is based on a modular architecture, with the basic mathematical functions implemented as a separate library. The calculator can be operated using the keyboard and includes built-in help. The project includes user and program documentation and an installer allowing easy installation and uninstallation of the application.
